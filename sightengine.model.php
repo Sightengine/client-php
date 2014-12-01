@@ -118,7 +118,7 @@ class Sightengine{
                 if($result===false){
                         throw new Exception('Could not connect to the server, got CURL error '.curl_error($ch));
                 }
-                else if($http_status>=400){
+                else if($http_status>=410 or $http_status==404){
                         throw new Exception('Received HTTP status code '.$http_status.' from server');
                 }
                 return $result;
