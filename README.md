@@ -10,15 +10,17 @@ Before starting, please make sure you have created an account on https://sighten
 
 # Install
 
+```php
 composer require sightengine
+```
 
 # Initialize the client
 
 You will need your API USER and API SECRET to initialize the client. You can find both of them on your Sightengine account.
 ```php
-require_once('vendor/autoload.php');
+require __DIR__ . '/vendor/autoload.php';
 
-$client = new \Sightengine\Client('YourApplicationID', 'YourAPIKey');
+$client = new SightengineClient('YourApplicationID', 'YourAPIKey');
 ```
 
 # Moderate an image
