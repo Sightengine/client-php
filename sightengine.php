@@ -7,12 +7,12 @@ class SightengineClient  {
 	private $api_user;
 	private $api_secret;
 	private $endpoint = 'https://api.sightengine.com/';
-    private $http;
+  private $http;
 
     function __construct($api_user, $api_secret) {
       $this->api_user = $api_user;
       $this->api_secret = $api_secret;
-      $this->http = new \GuzzleHttp\Client(['base_uri' => $this->endpoint]);
+      $this->http = new \GuzzleHttp\Client(['base_uri' => $this->endpoint, 'User-Agent' => 'SE-SDK-PHP' . '1.0']);
     }
 
     public function feedback($model, $modelClass, $image) {

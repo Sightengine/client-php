@@ -19,10 +19,10 @@ class StackTest extends TestCase
     {
         $client = new SightengineClient('1234', 'test');
 
-        $output = $client->check(['nudity','wad','properties','type','face'])->image('https://sightengine.com/assets/img/examples/example5.jpg');
+        $output = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->image('https://sightengine.com/assets/img/examples/example5.jpg');
         $this->assertEquals('success', $output->status);
 
-        $output2 = $client->check(['nudity'])->image(__DIR__ . '/assets/image.jpg');
+        $output2 = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->image(__DIR__ . '/assets/image.jpg');
         $this->assertEquals('success', $output2->status);
     }
 
