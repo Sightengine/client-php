@@ -1,5 +1,5 @@
 {	
-	"name": "Sightengine",
+	"name": "sightengine/client-php",
     "description": "Sightengine PHP client",
     "homepage": "https://sightengine.com",
   	"authors": [
