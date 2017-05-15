@@ -11,7 +11,7 @@ Before starting, please make sure you have created an account on https://sighten
 # Install
 
 ```php
-composer require sightengine
+composer require sightengine/client-php
 ```
 
 # Initialize the client
