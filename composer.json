@@ -1,4 +1,13 @@
-{
+{	
+	"name": "Sightengine",
+    "description": "Sightengine PHP client",
+    "homepage": "https://sightengine.com",
+  	"authors": [
+    	{
+      	"name": "Sightengine",
+      	"homepage": "https://sightengine.com"
+    	}
+  	],
     "require-dev": {
         "phpunit/phpunit": "^5.7"
     },
