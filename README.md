@@ -20,7 +20,7 @@ You will need your API USER and API SECRET to initialize the client. You can fin
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-$client = new SightengineClient('YourApplicationID', 'YourAPIKey');
+$client = new SightengineClient('{api_user}', '{api_secret}');
 ```
 
 # Moderate an image
