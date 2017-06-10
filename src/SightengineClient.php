@@ -1,13 +1,11 @@
-<?php 
-
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/check.php';
+<?php
+namespace Sightengine;
 
 class SightengineClient  { 
 	private $api_user;
 	private $api_secret;
 	private $endpoint = 'https://api.sightengine.com/';
-  private $http;
+    private $http;
 
     function __construct($api_user, $api_secret) {
       $this->api_user = $api_user;
@@ -35,6 +33,3 @@ class SightengineClient  {
       return new Check($this->api_user, $this->api_secret, $models);
     }
 }
-
-
-?> 

@@ -1,6 +1,8 @@
 <?php
-use PHPUnit\Framework\TestCase;
-require __DIR__ . '/sightengine.php';
+namespace Tests;
+
+use \PHPUnit\Framework\TestCase;
+use \Sightengine\SightengineClient;
 
 class StackTest extends TestCase
 {
