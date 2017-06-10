@@ -1,5 +1,5 @@
-<?php 
-require __DIR__ . '/vendor/autoload.php';
+<?php
+namespace Sightengine;
 
 class Check {
     private $api_user;
@@ -39,6 +39,4 @@ class Check {
 
         return json_decode($r->getBody());
     }
-} 
-
-?> 
+}

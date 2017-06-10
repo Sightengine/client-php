@@ -1,17 +1,23 @@
 {	
 	"name": "sightengine/client-php",
-    "description": "Sightengine PHP client",
-    "homepage": "https://sightengine.com",
-  	"authors": [
-    	{
-      	"name": "Sightengine",
-      	"homepage": "https://sightengine.com"
-    	}
-  	],
-    "require-dev": {
-        "phpunit/phpunit": "^5.7"
-    },
-    "require": {
-        "guzzlehttp/guzzle": "~6.0"
+  "description": "Sightengine PHP client",
+  "homepage": "https://sightengine.com",
+  "authors": [
+    { "name": "Sightengine", "homepage": "https://sightengine.com" },
+    { "name": "Robert McKenney", "email": "robert@mckenney.ca" }
+  ],
+
+  "require-dev": {
+      "phpunit/phpunit": "^5.7"
+  },
+
+  "require": {
+      "guzzlehttp/guzzle": "~6.0"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "Sightengine\\": "src/"
     }
+  }
 }
