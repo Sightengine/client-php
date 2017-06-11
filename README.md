@@ -18,7 +18,7 @@ composer require sightengine/client-php
 
 You will need your API USER and API SECRET to initialize the client. You can find both of them on your Sightengine account.
 ```php
-use Sightengine\SightenginClient;
+use \Sightengine\SightengineClient;
 
 $client = new SightengineClient('{api_user}', '{api_secret}');
 ```
