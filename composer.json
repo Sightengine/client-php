@@ -3,8 +3,7 @@
   "description": "Sightengine PHP client",
   "homepage": "https://sightengine.com",
   "authors": [
-    { "name": "Sightengine", "homepage": "https://sightengine.com" },
-    { "name": "Robert McKenney", "email": "robert@mckenney.ca" }
+    { "name": "Sightengine Team", "homepage": "https://sightengine.com" }
   ],
 
   "require-dev": {
