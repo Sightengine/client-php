@@ -7,7 +7,7 @@ class Check {
     private $endpoint = 'https://api.sightengine.com/';
     private $http;
     private $models;
-    private $url = '1.0/check.json'
+    private $url = '1.0/check.json';
 
     function __construct($api_user, $api_secret, $models) {
       $this->api_user = $api_user;
