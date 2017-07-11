@@ -30,7 +30,9 @@ class Check {
     }
 
     public function set_bytes($binaryImage) {
-        $r = $this->http->request('POST', $this->url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models],'multipart' => [['name' => 'media','contents' => $binaryImage]]]); 
+        $image = fopen($binaryImage, 'r');
+
+        $r = $this->http->request('POST', $this->url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models],'multipart' => [['name' => 'media','contents' => $image]]]); 
 
         return json_decode($r->getBody());
     }
