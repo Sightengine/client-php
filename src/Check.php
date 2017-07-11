@@ -16,9 +16,9 @@ class Check {
       $this->models = implode(",", $models);
     }
 
-    public function set_file($file) {
+    public function set_file($image) {
         $file = fopen($image, 'r');
-        $r = $this->http->request('POST', $this->url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models],'multipart' => [['name' => 'media','contents' => $file]]]); 
+        $r = $this->http->request('POST', $this->url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models],'multipart' => [['name' => 'media','contents' => $image]]]); 
 
         return json_decode($r->getBody());
     }
