@@ -9,7 +9,7 @@ class StackTest extends TestCase
     public function test_nudityModel()
     {
         $client = new SightengineClient('1234', 'test');
-        $binaryFile = file_get_contents(__DIR__ . '/assets/image.jpg');
+        $binaryFile = fopen(__DIR__ . '/assets/image.jpg', 'r'); // stream handles are returned by fopen()
 
         $output = $client->check(['nudity'])->set_url('https://sightengine.com/assets/img/examples/example5.jpg');
         $this->assertEquals('success', $output->status);
@@ -24,7 +24,7 @@ class StackTest extends TestCase
     public function test_allModel()
     {
         $client = new SightengineClient('1234', 'test');
-        $binaryFile = file_get_contents(__DIR__ . '/assets/image.jpg');
+        $binaryFile = fopen(__DIR__ . '/assets/image.jpg', 'r');
 
         $output = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->set_url('https://sightengine.com/assets/img/examples/example5.jpg');
         $this->assertEquals('success', $output->status);
