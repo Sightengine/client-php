@@ -7,6 +7,7 @@ class Check {
     private $endpoint = 'https://api.sightengine.com/';
     private $http;
     private $models;
+    private $url = '1.0/check.json';
 
     function __construct($api_user, $api_secret, $models) {
       $this->api_user = $api_user;
@@ -15,22 +16,23 @@ class Check {
       $this->models = implode(",", $models);
     }
 
-    public function image($image) {
-        $url = '1.0/check.json';
+    public function set_file($image) {
+        $file = fopen($image, 'r');
+        $r = $this->http->request('POST', $this->url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models],'multipart' => [['name' => 'media','contents' => $file]]]); 
 
-        if (filter_var($image, FILTER_VALIDATE_URL)) { 
-            $r = $this->http->request('GET', $url, ['query' => ['api_user' => $this->api_user, 
-                'api_secret' => $this->api_secret, 
-                'models' => $this->models,
-                'url' => $image]]);
+        return json_decode($r->getBody());
+    }
 
-            return json_decode($r->getBody());
-        } else {
-            $file = fopen($image, 'r');
-            $r = $this->http->request('POST', $url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models],'multipart' => [['name' => 'media','contents' => $file]]]); 
+    public function set_url($imageUrl) {
+        $r = $this->http->request('GET', $this->url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models,'url' => $imageUrl]]);
+        
+        return json_decode($r->getBody());
+    }
 
-            return json_decode($r->getBody());
-        }
+    public function set_bytes($image) {
+        $r = $this->http->request('POST', $this->url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'models' => $this->models],'multipart' => [['name' => 'media','contents' => $image]]]); 
+
+        return json_decode($r->getBody());
     }
 
     public function video($videoUrl, $callbackUrl) {

@@ -23,7 +23,7 @@ class SightengineClient  {
 		  } 
       else {
 			   $file = fopen($image, 'r');
-        $r = $this->http->request('POST', $url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'model' => $model,'class' => $modelClass],'multipart' => [['name' => 'media','contents' => $file]]]); 
+         $r = $this->http->request('POST', $url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'model' => $model,'class' => $modelClass],'multipart' => [['name' => 'media','contents' => $file]]]); 
 
         return json_decode($r->getBody());
 		  }
