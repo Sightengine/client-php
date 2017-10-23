@@ -62,7 +62,7 @@ $output = $client->check(['nudity', 'type', 'properties', 'wad', 'face'])->set_b
 The first step to detect nudity in a video stream is to submit the video stream to the API.
 
 ```php
-$client->check(['nudity'])->video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'https://example.com/yourcallback')
+$client->check(['nudity', 'wad'])->video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'https://example.com/yourcallback')
 ```
 
 # Feedback
