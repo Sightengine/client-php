@@ -60,7 +60,7 @@ class StackTest extends TestCase
     public function test_video()
     {
         $client = new SightengineClient('1234', 'test');
-        $output = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm','http://requestb.in/1nm1vw11');
+        $output = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->video('https://sightengine.com/assets/stream/examples/funfair.mp4','http://requestb.in/1nm1vw11');
         $this->assertEquals('success', $output->status);
     }
 }
