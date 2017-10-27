@@ -17,7 +17,7 @@ class StackTest extends TestCase
         $output2 = $client->check(['nudity'])->set_file(__DIR__ . '/assets/image.jpg');
         $this->assertEquals('success', $output2->status);
 
-        $output3 = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->set_bytes($binaryFile);
+        $output3 = $client->check(['nudity','wad','properties','type','faces', 'celebrities'])->set_bytes($binaryFile);
         $this->assertEquals('success', $output3->status);
     }
 
@@ -26,13 +26,13 @@ class StackTest extends TestCase
         $client = new SightengineClient('1234', 'test');
         $binaryFile = fopen(__DIR__ . '/assets/image.jpg', 'r');
 
-        $output = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->set_url('https://sightengine.com/assets/img/examples/example5.jpg');
+        $output = $client->check(['nudity','wad','properties','type','faces', 'celebrities'])->set_url('https://sightengine.com/assets/img/examples/example5.jpg');
         $this->assertEquals('success', $output->status);
 
-        $output2 = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->set_file(__DIR__ . '/assets/image.jpg');
+        $output2 = $client->check(['nudity','wad','properties','type','faces', 'celebrities'])->set_file(__DIR__ . '/assets/image.jpg');
         $this->assertEquals('success', $output2->status);
 
-        $output3 = $client->check(['nudity','wad','properties','type','face', 'celebrities'])->set_bytes($binaryFile);
+        $output3 = $client->check(['nudity','wad','properties','type','faces', 'celebrities'])->set_bytes($binaryFile);
         $this->assertEquals('success', $output3->status);
     }
 
@@ -55,6 +55,14 @@ class StackTest extends TestCase
 
         $feedback4 = $client->feedback('nudity','raw', __DIR__ . '/assets/image.jpg');
         $this->assertEquals('success', $feedback4->status);
+    }
+
+    public function test_video()
+    {
+        $client = new SightengineClient('1234', 'test');
+        $output = $client->check(['nudity','wad','properties','type','faces', 'celebrities'])->video('https://sightengine.com/assets/stream/examples/funfair.mp4','http://requestb.in/1nm1vw11');
+
+        $this->assertEquals('success', $output->status);
     }
 }
 ?>

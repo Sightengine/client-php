@@ -36,8 +36,8 @@ class Check {
     }
 
     public function video($videoUrl, $callbackUrl) {
-        $url = '1.0/video/moderation.json';
-        $r = $this->http->request('GET', $url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'stream_url' => $videoUrl,'callback_url' => $callbackUrl]]);
+        $url = '1.0/video/check.json';
+        $r = $this->http->request('GET', $url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'stream_url' => $videoUrl,'callback_url' => $callbackUrl, 'models' => $this->models]]);
 
         return json_decode($r->getBody());
     }
