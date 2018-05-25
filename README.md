@@ -59,16 +59,31 @@ $output = $client->check(['nudity', 'type', 'properties', 'wad', 'face'])->set_b
 ```
 
 # Video and Stream Moderation
-The first step to detect nudity in a video stream is to submit the video stream to the API.
+
+You can perform either _synchronous_ or _asynchronous_ Video Moderation.
+
+* Synchronous Moderation is simple and easy: the Moderation result is provided directly in the reponse to your API request. Synchronous Moderation is only available for videos that are less than 1 minute long.
+* Asynchronous Moderation is available for any video or stream. Moderation results are provided through a so-called callback mechanism. You define a callback URL and the Moderation Engine will send back moderation events to that URL in realtime.
+
+## Synchronous Video Moderation
+
+Beware: this is only for videos that have a duration below 1 minute.
+
+```php
+$client->check(['nudity', 'wad'])->video_sync('https://sightengine.com/assets/stream/examples/funfair.mp4')
+```
+
+## Asynchronous Video Moderation
+
+The first step to moderate a video stream is to submit the video stream to the API, along with a callback URL.
 
 ```php
 $client->check(['nudity', 'wad'])->video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'https://example.com/yourcallback')
 ```
 
-You can also moderate a video synchronously. This only works for videos that are shorter than a minute.
-```php
-$client->check(['nudity', 'wad'])->video_sync('https://sightengine.com/assets/stream/examples/funfair.mp4')
-```
+Once you have submitted the video, the API will start POSTing moderation updates to your callback URL.
+
+Please see our [Documentation](https://sightengine.com/docs) for more details.
 
 # Feedback
 In order to report a misclassification, you need to report the image that was misclassified, the model that was run on this image (models are nudity, face, type, wad), and the correct class of the image.
