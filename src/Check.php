@@ -41,4 +41,11 @@ class Check {
 
         return json_decode($r->getBody());
     }
+
+    public function video_sync($videoUrl) {
+        $url = '1.0/video/check-sync.json';
+        $r = $this->http->request('GET', $url, ['query' => ['api_user' => $this->api_user, 'api_secret' => $this->api_secret, 'stream_url' => $videoUrl, 'models' => $this->models]]);
+
+        return json_decode($r->getBody());
+    }
 }

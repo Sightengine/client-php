@@ -64,5 +64,13 @@ class StackTest extends TestCase
 
         $this->assertEquals('success', $output->status);
     }
+
+    public function test_video_sync()
+    {
+        $client = new SightengineClient('1234', 'test');
+        $output = $client->check(['nudity','wad','properties','type','faces', 'celebrities'])->video_sync('https://sightengine.com/assets/stream/examples/funfair.mp4');
+
+        $this->assertEquals('success', $output->status);
+    }
 }
 ?>
