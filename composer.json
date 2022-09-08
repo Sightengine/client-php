@@ -1,5 +1,5 @@
 {	
-	"name": "sightengine/client-php",
+  "name": "sightengine/client-php",
   "description": "Sightengine PHP client",
   "homepage": "https://sightengine.com",
   "authors": [
@@ -7,11 +7,11 @@
   ],
 
   "require-dev": {
-      "phpunit/phpunit": "^5.7"
+      "phpunit/phpunit": "^9.0"
   },
 
   "require": {
-      "guzzlehttp/guzzle": "~6.0"
+      "guzzlehttp/guzzle": "~7.4"
   },
 
   "autoload": {
